@@ -680,7 +680,7 @@ void CGlobalRendering::SwapBuffers(bool allowSwapBuffers, bool clearErrors)
 		if (clearErrors || glDebugErrors)
 			glClearErrors("GR", __func__, glDebugErrors);
 
-		if (!allowSwapBuffers && !forceSwapBuffers)
+		if ((!allowSwapBuffers || !active) && !forceSwapBuffers)
 			return;
 
 		pre = spring_now();
